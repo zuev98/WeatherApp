@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgroundTint">@color/blue</color>
+
+    <dimen name="image_item_width">48dp</dimen>
+    <dimen name="image_item_height">48dp</dimen>
+    <dimen name="margin_start_from_img">52dp</dimen>
+    <dimen name="current_big_card_width">152dp</dimen>
+    <dimen name="current_card_height">64dp</dimen>
+    <dimen name="current_card_width">122dp</dimen>
+    <dimen name="small_image_item_width">48dp</dimen>
+    <dimen name="small_image_item_height">48dp</dimen>
+    <dimen name="margin_start_from_small_img">52dp</dimen>
+    <dimen name="uv_margin_start_from_small_img">60dp</dimen>
+    <dimen name="mini_image_item_width">40dp</dimen>
+    <dimen name="mini_image_item_height">40dp</dimen>
+    <dimen name="image_btn_width">48dp</dimen>
+    <dimen name="image_btn_height">48dp</dimen>
+    <dimen name="btn_margin_bottom">8dp</dimen>
+</resources>

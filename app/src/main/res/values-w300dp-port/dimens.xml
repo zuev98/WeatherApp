@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="current_card_width">110dp</dimen>
+    <dimen name="small_image_item_width">44dp</dimen>
+    <dimen name="small_image_item_height">44dp</dimen>
+    <dimen name="margin_start_from_small_img">48dp</dimen>
+    <dimen name="uv_margin_start_from_small_img">54dp</dimen>
+</resources>

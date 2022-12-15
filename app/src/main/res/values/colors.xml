@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="soft_blue">#FF578deb</color>
+    <color name="deep_blue">#FF0060b8</color>
+    <color name="dark_blue">#FF003787</color>
+    <color name="strong_blue">#FF0003b8</color>
+    <color name="dark_strong_blue">#FF000086</color>
+    <color name="bright_blue">#FF5e39ec</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#FF44A6F1</color>
+    <color name="transparent">#00000000</color>
+</resources>

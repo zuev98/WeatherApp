@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/retry_btn"
+                style="@style/Widget.TestWeatherApp.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retry"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/last_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2022-11-17 12:00" />
+
+            <ImageView
+                android:id="@+id/condition_img"
+                android:layout_width="@dimen/image_item_width"
+                android:layout_height="@dimen/image_item_height"
+                android:contentDescription="@string/weather_condition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/d113"/>
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Moscow" />
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city"
+                tools:text="-5.0°C" />
+
+            <ImageButton
+                android:id="@+id/location_img_btn"
+                android:layout_width="@dimen/image_btn_width"
+                android:layout_height="@dimen/image_btn_height"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_location"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="@string/search_by_geolocation"
+                app:layout_constraintBottom_toBottomOf="@+id/temperature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/temperature"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/search_img_btn"
+                android:layout_width="@dimen/image_btn_width"
+                android:layout_height="@dimen/image_btn_height"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_search"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="@string/search_by_city"
+                app:layout_constraintBottom_toBottomOf="@+id/temperature"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/temperature"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temperature"
+                tools:text="Partly cloudy" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wind_cv"
+                android:layout_width="@dimen/current_big_card_width"
+                android:layout_height="@dimen/current_card_height"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/pressure_cv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/condition"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/wind_img"
+                    layout="@layout/weather_image_item" />
+
+                <include
+                    android:id="@+id/wind_reading"
+                    layout="@layout/weather_reading_big_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pressure_cv"
+                android:layout_width="@dimen/current_big_card_width"
+                android:layout_height="@dimen/current_card_height"
+                app:layout_constraintStart_toEndOf="@+id/wind_cv"
+                app:layout_constraintEnd_toStartOf="@+id/precip_cv"
+                app:layout_constraintTop_toTopOf="@+id/wind_cv"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/pressure_img"
+                    layout="@layout/weather_image_item" />
+
+                <include
+                    android:id="@+id/pressure_reading"
+                    layout="@layout/weather_reading_big_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/precip_cv"
+                android:layout_width="@dimen/current_big_card_width"
+                android:layout_height="@dimen/current_card_height"
+                app:layout_constraintEnd_toEndOf="@+id/feels_like_cv"
+                app:layout_constraintStart_toEndOf="@+id/pressure_cv"
+                app:layout_constraintTop_toTopOf="@+id/wind_cv"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/precip_img"
+                    layout="@layout/weather_image_item" />
+
+                <include
+                    android:id="@+id/precip_reading"
+                    layout="@layout/weather_reading_big_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/feels_like_cv"
+                android:layout_width="@dimen/current_big_card_width"
+                android:layout_height="@dimen/current_card_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/wind_cv"
+                app:layout_constraintStart_toEndOf="@id/precip_cv"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/feels_like_img"
+                    layout="@layout/weather_image_item" />
+
+                <include
+                    android:id="@+id/feels_like_reading"
+                    layout="@layout/weather_reading_big_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/humidity_cv"
+                android:layout_width="@dimen/current_card_width"
+                android:layout_height="@dimen/current_card_height"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wind_cv"
+                app:layout_constraintEnd_toStartOf="@+id/cloud_cv"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/humidity_img"
+                    layout="@layout/weather_image_item"/>
+
+                <include
+                    android:id="@+id/humidity_reading"
+                    layout="@layout/weather_reading_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cloud_cv"
+                android:layout_width="@dimen/current_card_width"
+                android:layout_height="@dimen/current_card_height"
+                app:layout_constraintStart_toEndOf="@+id/humidity_cv"
+                app:layout_constraintTop_toTopOf="@+id/humidity_cv"
+                app:layout_constraintEnd_toStartOf="@+id/uv_cv"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/cloud_img"
+                    layout="@layout/weather_image_item"/>
+
+                <include
+                    android:id="@+id/cloud_reading"
+                    layout="@layout/weather_reading_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_start_from_small_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/uv_cv"
+                android:layout_width="@dimen/current_card_width"
+                android:layout_height="@dimen/current_card_height"
+                app:layout_constraintStart_toEndOf="@+id/cloud_cv"
+                app:layout_constraintTop_toTopOf="@+id/cloud_cv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:strokeWidth="3dp">
+
+                <include
+                    android:id="@+id/uv_img"
+                    layout="@layout/weather_image_item"/>
+
+                <include
+                    android:id="@+id/uv_reading"
+                    layout="@layout/weather_reading_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/uv_margin_start_from_small_img" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/cloud_cv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/list_item_current_forecast"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.TestWeatherApp.Button"
+                android:id="@+id/details_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/more_details"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/forecast_btn"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.TestWeatherApp.Button"
+                android:id="@+id/forecast_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weekly_forecast"
+                app:layout_constraintTop_toTopOf="@+id/details_btn"
+                app:layout_constraintStart_toEndOf="@+id/details_btn"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

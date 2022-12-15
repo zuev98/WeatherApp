@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:strokeWidth="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="12:00" />
+
+        <ImageView
+            android:id="@+id/condition_img"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/weather_condition"
+            tools:src="@drawable/d113" />
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="28sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="-12.0 °C" />
+
+        <TextView
+            android:id="@+id/condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/temperature"
+            tools:text="Partly cloudy" />
+
+        <include
+            android:id="@+id/wind_img"
+            layout="@layout/weather_image_item"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintEnd_toStartOf="@+id/wind_reading"
+            card_view:layout_constraintTop_toBottomOf="@+id/condition" />
+
+        <include
+            android:id="@+id/wind_reading"
+            layout="@layout/weather_reading_big_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/wind_img"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline50"
+            card_view:layout_constraintTop_toTopOf="@+id/wind_img" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            card_view:layout_constraintGuide_percent="0.5"/>
+
+        <include
+            android:id="@+id/feels_like_img"
+            layout="@layout/weather_image_item"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            android:layout_marginStart="24dp"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline50"
+            card_view:layout_constraintTop_toTopOf="@+id/wind_img" />
+
+        <include
+            android:id="@+id/feels_like_reading"
+            layout="@layout/weather_reading_big_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintBottom_toBottomOf="@+id/feels_like_img"
+            card_view:layout_constraintStart_toEndOf="@+id/feels_like_img"
+            card_view:layout_constraintTop_toTopOf="@+id/wind_img" />
+
+        <include
+            android:id="@+id/humidity_img"
+            layout="@layout/weather_image_item"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintEnd_toStartOf="@+id/humidity_reading"
+            card_view:layout_constraintTop_toBottomOf="@+id/wind_img" />
+
+        <include
+            android:id="@+id/humidity_reading"
+            layout="@layout/weather_reading_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/humidity_img"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline33"
+            card_view:layout_constraintTop_toTopOf="@+id/humidity_img" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            card_view:layout_constraintGuide_percent="0.33"/>
+
+        <include
+            android:id="@+id/chance_of_rain_img"
+            layout="@layout/weather_image_item"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            card_view:layout_constraintEnd_toStartOf="@+id/chance_of_rain_reading"
+            card_view:layout_constraintTop_toTopOf="@+id/humidity_img" />
+
+        <include
+            android:id="@+id/chance_of_rain_reading"
+            layout="@layout/weather_reading_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mini_image_item_width"
+            card_view:layout_constraintBottom_toBottomOf="@+id/chance_of_rain_img"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline67"
+            card_view:layout_constraintStart_toEndOf="@+id/guideline33"
+            card_view:layout_constraintTop_toTopOf="@+id/chance_of_rain_img" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            card_view:layout_constraintGuide_percent="0.67"/>
+
+        <include
+            android:id="@+id/chance_of_snow_img"
+            layout="@layout/weather_image_item"
+            android:layout_width="@dimen/mini_image_item_width"
+            android:layout_height="@dimen/mini_image_item_height"
+            android:layout_marginStart="8dp"
+            card_view:layout_constraintStart_toEndOf="@id/guideline67"
+            card_view:layout_constraintTop_toTopOf="@+id/humidity_img" />
+
+        <include
+            android:id="@+id/chance_of_snow_reading"
+            layout="@layout/weather_reading_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintBottom_toBottomOf="@+id/chance_of_snow_img"
+            card_view:layout_constraintStart_toEndOf="@+id/chance_of_snow_img"
+            card_view:layout_constraintTop_toTopOf="@+id/chance_of_snow_img" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
